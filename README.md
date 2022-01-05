@@ -1,10 +1,10 @@
 # Strabo2-Experiments
 This repository contains all the necessary material in order to repoduce the Strabo2 experiments reported in Deliverable D3.5 of ExtremeEarth
 
-##Geographica 3 Synthetic Generator
+## Geographica 3 Synthetic Generator
 Follow directions from https://github.com/tioannid/dist-semantic-geospatial-synthetic-generator in order to generate synthetic datasets and queries.
 
-##Data Importer
+## Data Importer
 git clone https://github.com/dbilid/PRoST.git
 cd PRoST/loader
 (change pom.xml to match spark version on your environment and remove the provided declaration from spark-hive if needed)
@@ -22,7 +22,7 @@ Where:
 -synthetic is the name of the HIve DB that will be used (must have been created prior to execution)
 
 
-##Query Executor
+## Query Executor
 git clone https://github.com/db-ee/ontop-spatial.git -b diststrabon
 (chane distributed-strabon/pom.xml to match spark version on your environment and add spark-hive if needed)
 mvn clean install -DskipTests
