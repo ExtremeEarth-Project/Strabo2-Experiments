@@ -1,0 +1,19 @@
+ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+ PREFIX strdf: <http://strdf.di.uoa.gr/ontology#> 
+ PREFIX geof: <http://www.opengis.net/def/function/geosparql/> 
+ PREFIX geo: <http://www.opengis.net/ont/geosparql#> 
+ PREFIX geo-sf: <http://www.opengis.net/ont/sf#> 
+ SELECT ?s1 ?s2 
+ WHERE {
+       ?s2 <http://geographica.di.uoa.gr/generator/state/hasGeometry> ?s2Geo . 
+       ?s2Geo <http://geographica.di.uoa.gr/generator/state/asWKT> ?geo2 . 
+       ?s2 <http://geographica.di.uoa.gr/generator/state/hasTag> ?tag2 . 
+       ?tag2 <http://geographica.di.uoa.gr/generator/state/hasKey> "512" .  
+       ?s1 <http://geographica.di.uoa.gr/generator/pointOfInterest/hasGeometry> ?s1Geo . 
+       ?s1Geo <http://geographica.di.uoa.gr/generator/pointOfInterest/asWKT> ?geo1 . 
+       ?s1 <http://geographica.di.uoa.gr/generator/pointOfInterest/hasTag> ?tag1 . 
+       ?tag1 <http://geographica.di.uoa.gr/generator/pointOfInterest/hasKey> "256" .  
+       FILTER ( geof:sfWithin(?geo1, ?geo2)) .
+ }
